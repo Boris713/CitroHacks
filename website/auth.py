@@ -17,7 +17,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category = "success")
                 login_user(user, remember=True)
-                return redirect(url_for("views.home"))
+                return redirect("https://personal-co2-emission-cal.onrender.com/", code = 302)
             else:
                 flash("Incorrect password, try again.", category = "error")
         else:
@@ -56,7 +56,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             flash("Account created!", category = "success")
-            return redirect(url_for("views.home"))
+            return redirect("https://personal-co2-emission-cal.onrender.com/", code = 302)
 
 
     return render_template("sign_up.html")
